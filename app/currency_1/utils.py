@@ -1,5 +1,6 @@
-import string
 import random
+import string
+
 
 def generate_password(length: int = 10) -> str:
     chars = string.ascii_letters + string.digits
@@ -7,5 +8,4 @@ def generate_password(length: int = 10) -> str:
 
     for _ in range(length):
         password += random.choice(chars)
-
     return password
