@@ -28,9 +28,9 @@ class Command(BaseCommand):
         print('Hello from ContactUs.objects.create')
         for index in range(100):
             ContactUs.objects.create(
-                email_from=f'{fake.email()}',
-                subject=f'{fake.text(max_nb_chars=10)}',
-                message=f'{fake.text(max_nb_chars=100)}',
+                email_from=fake.email(),
+                subject=fake.text(max_nb_chars=10),
+                message=fake.text(max_nb_chars=100),
                 )
         print('Bay from ContactUs.objects.create')
         print('Bay from generate_data.py')
