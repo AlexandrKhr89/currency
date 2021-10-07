@@ -94,3 +94,14 @@
 '$ git branch myNewBranch'
 
 '$ git checkout Home_Work_6'
+
+**Lesson 8**
+
+'$ python ./app/manage.py runserver'
+
+'In [1]: Rate.objects.all()[:100]'
+
+'In [3]: Rate.objects.all()[:100].values_list('id')'
+
+'In [4]: Rate.objects.all()[:100].values_list('id', flat=True)'
+

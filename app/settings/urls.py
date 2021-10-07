@@ -15,6 +15,8 @@ Including another URLconf
 """
 from currency_1.views import generate_password
 from currency_1.views import hello_world
+from currency_1.views import rate_list
+from currency_1.views import rate_details
 
 
 from django.contrib import admin
@@ -28,4 +30,7 @@ urlpatterns = [
 
     path('hello_world/', hello_world),
 
+    path('currency_1/rate/list/', rate_list),
+
+    path('currency_1/rate/details/<int:pk>', rate_details),
 ]
