@@ -105,3 +105,10 @@
 
 'In [4]: Rate.objects.all()[:100].values_list('id', flat=True)'
 
+'In [1]: SourceBank.objects.all()'
+
+'In [2]: SourceBank.objects.all().values_list('id')'
+
+'In [3]: SourceBank.objects.all().values_list('name_source')'
+
+'In [4]: SourceBank.objects.all().values_list('url_source')'

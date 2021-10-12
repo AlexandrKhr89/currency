@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bank_list</title>
+</head>
+<body>
+{# Доступ к переменной с views.py через {{ переменная }}#}
+
+<p>context: {{context}}</p>
+
+{#<p>object: {{object}}</p>#}
+{#<h2>banks_details:</h2>#}
+{#<p>ID: {{ object.id }}</p>#}
+{#<p>Name_Source: {{ object.name_source }}</p>#}
+{#<p>Url_Source: {{ object.url_source }}</p>#}
+
+{#<p>object: {{objects}}</p>#}
+<h1>Bank_list</h1>
+
+<table>
+<tr><th>ID</th><th>Name_Source</th><th>Url_Source</th></tr> <!--ряд с ячейками заголовков-->
+{% for banks_ in objects %}
+<tr><td>{{ banks_.id }}</td><td>{{ banks_.name_source }}</td><td>{{ banks_.url_source }}</td></tr> <!--ряд с ячейками тела таблицы-->
+{% endfor %}
+</table>
+
+
+
+{#<h2>banks_list:</h2>#}
+{#{% for banks_ in objects %}#}
+{#    <p>#}
+{#        banks_ID: {{ banks_.id }}#}
+{#        banks_Name_Source: {{ banks_.name_source }}#}
+{#        banks_Url_Source: {{ banks_.url_source }}#}
+{#    </p>#}
+{#{% endfor %}#}
+
+
+
+</body>
+</html>
