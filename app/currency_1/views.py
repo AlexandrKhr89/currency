@@ -1,8 +1,12 @@
+from annoying.functions import get_object_or_None
+
+from currency_1.forms import RateForm
 from currency_1.models import Rate
 from currency_1.models import SourceBank
 from currency_1.utils import generate_password as gp
 
 from django.http import HttpResponse
+from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404
 from django.shortcuts import render
 
@@ -104,3 +108,60 @@ def bank_details(request, pk):
     }
 
     return render(request, 'bank_details.html', context=context)
+
+
+def rate_create(request):
+    form_data = request.GET
+    if request.method == 'POST':
+        form_data = request.POST
+        form = RateForm(form_data)
+        # print('breakpoint() from views.py')
+        # breakpoint()
+        if form.is_valid():
+            print('YES, VALID')
+            form.save()
+            return HttpResponseRedirect('/currency_1/rate/list')
+    elif request.method == 'GET':
+        form = RateForm()
+
+    context = {
+        'message': 'Hello From rate_create context (views.py)',
+        'form': form,
+        'count': Rate.objects.count(),
+    }
+    # breakpoint()
+    return render(request, 'rate_create.html', context=context)
+
+
+def rate_update(request, pk):
+    instance = get_object_or_404(Rate, pk=pk)
+    # context = {
+    #     'message': 'Hello From rate_update context (views.py)',
+    #     'instance': instance,
+    # }
+    #
+    if request.method == 'POST':
+        form_data = request.POST
+        form = RateForm(form_data, instance=instance)
+        if form.is_valid():
+            print('YES, VALID')
+            form.save()
+            return HttpResponseRedirect('/currency_1/rate/list')
+    elif request.method == 'GET':
+        form = RateForm(instance=instance)
+
+    context = {
+        # 'message': 'Hello From rate_update context (views.py)',
+        'form': form,
+        # 'count': Rate.objects.count(),
+    }
+    # breakpoint()
+    return render(request, 'rate_update.html', context=context)
+
+
+def rate_delete(request, pk):
+    # instance = get_object_or_404(Rate, pk=pk)
+    instance = get_object_or_None(Rate, pk=pk)
+    if instance is not None:
+        instance.delete()
+    return HttpResponseRedirect('/currency_1/rate/list')

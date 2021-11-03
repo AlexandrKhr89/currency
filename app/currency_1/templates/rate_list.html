@@ -6,19 +6,33 @@
 </head>
 <body>
 
-HELLO
+
+<a href="/currency_1/rate/create/">Create Rate</a>
+
 <h1>Rate_list</h1>
+
 <table>
-<tr><th>ID</th><th>Buy</th><th>Sale</th></tr> <!--ряд с ячейками заголовков-->
+<tr>
+    <th>ID</th>
+    <th>Buy</th>
+    <th>Sale</th>
+    <th>Edit</th>
+</tr> <!--ряд с ячейками заголовков-->
 
 
 {% for rate in objects %}
-    <tr><td>{{ rate.id }}</td><td>{{ rate.buy }}</td><td>{{ rate.sale }}</td></tr> <!--ряд с ячейками тела таблицы-->
+    <tr>
+        <td>{{ rate.id }}</td>
+        <td>{{ rate.buy }}</td>
+        <td>{{ rate.sale }}</td>
+        <td> <a href="/currency_1/rate/update/{{ rate.id }}/">Edit</a> </td>
+    </tr> <!--ряд с ячейками тела таблицы-->
 
 {#    <p>#}
 {#        ID: {{ rate.id }}#}
 {#        Buy: {{ rate.buy }}#}
 {#        Sale: {{ rate.sale }}#}
+{#        <a href="/currency_1/rate/update/{{ rate.id }}/">Edit</a>#}
 {#    </p>#}
 
 {% endfor %}

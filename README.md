@@ -95,6 +95,12 @@
 
 '$ git checkout Home_Work_6'
 
+'$ git add --all'
+
+'$ git commit -m 'Add Home_Work_7'
+
+'$ git push origin Home_Work_7'
+
 **Lesson 8**
 
 '$ python ./app/manage.py runserver'
@@ -112,3 +118,18 @@
 'In [3]: SourceBank.objects.all().values_list('name_source')'
 
 'In [4]: SourceBank.objects.all().values_list('url_source')'
+
+**Lesson 9**
+
+'Makefile'
+
+'(env) alexandr89@DESKTOP-L9M6OAB:~/currency$ make runserver'
+
+'$ ifconfig'
+
+'$ make runserver'
+
+'$ pip install django-annoying'
+
+
+

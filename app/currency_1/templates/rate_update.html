@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<p> {{ message }} </p>
+<p> Instance: {{ form.instance.id }} </p>
+<p> Count: {{ count }} </p>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Send</button>
+</form>
+
+<a href="/currency_1/rate/delete/{{ form.instance.id }}/">Delete</a>
+
+</body>
+</html>
